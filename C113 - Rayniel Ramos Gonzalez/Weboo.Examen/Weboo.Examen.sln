@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weboo.Examen", "Weboo.Examen\Weboo.Examen.csproj", "{20D99E89-0152-4E34-BC3B-A9581B61D528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weboo.Tester", "Weboo.Tester\Weboo.Tester.csproj", "{C2116148-0276-47D5-A0F1-9F3C8E750EB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20D99E89-0152-4E34-BC3B-A9581B61D528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D99E89-0152-4E34-BC3B-A9581B61D528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D99E89-0152-4E34-BC3B-A9581B61D528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D99E89-0152-4E34-BC3B-A9581B61D528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2116148-0276-47D5-A0F1-9F3C8E750EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2116148-0276-47D5-A0F1-9F3C8E750EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2116148-0276-47D5-A0F1-9F3C8E750EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2116148-0276-47D5-A0F1-9F3C8E750EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
