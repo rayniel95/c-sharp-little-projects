@@ -1,3 +1,3 @@
 # About
 
-Solved exercises from my Programming course (first year of my CS degree).
+Solved exercises from my Programming course (first year of my CS degree). Very old exercises!!!!!!!!!!!!!! :)
