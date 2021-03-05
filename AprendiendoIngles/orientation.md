@@ -12,17 +12,15 @@ Por cada número se debe de imprimir la representación numérica del número qu
 
 Caso(s) de Ejemplo:
 
-entrada
+- entrada
 
-- 3
-- owe
-- too
-- theee
+  - 3
+  - owe
+  - too
+  - theee
 
-salida
+- salida
 
-- 1
-
-- 2
-
-- 3
+  - 1
+  - 2
+  - 3

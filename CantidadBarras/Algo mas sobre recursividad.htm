@@ -1,0 +1,1055 @@
+<HTML xmlns:o="urn:schemas-microsoft-com:office:office" dir="ltr">
+<HEAD><meta name="GENERATOR" content="Microsoft SharePoint" /><meta name="progid" content="SharePoint.WebPartPage.Document" /><meta HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8" /><meta HTTP-EQUIV="Expires" content="0" /><title>
+	
+	Programación - Algo mas sobre recursividad
+
+</title><link rel="stylesheet" type="text/css" href="/_layouts/3082/styles/core.css?rev=6lJt86CFTeXIesmQOHp0XA%3D%3D"/>
+<script type="text/javascript" language="javascript" src="/_layouts/3082/init.js?rev=qQqJ%2B4wiXhp%2Bsi8xwuuM1A%3D%3D"></script>
+<script type="text/javascript" language="javascript" src="/_layouts/3082/core.js?rev=yxewtlu23Cg4w2%2FBk9EQiQ%3D%3D" defer></script>
+<script type="text/javascript" language="javascript" src="/_layouts/portal.js?rev=cRI8b5r5N%2BkLhIuWR03ICg%3D%3D"></script>
+<script type="text/javascript" language="javascript" src="/_layouts/3082/non_ie.js?rev=yfNry4hY0Gwa%2FPDNGrqXVg%3D%3D"></script>
+<script type="text/javascript" language="javascript" src="/_layouts/3082/search.js?rev=kv%2F87Wr6xld%2BYK6BtU8AHA%3D%3D" defer></script>
+<link type="text/xml" rel="alternate" href="/docencia/programacion/_vti_bin/spsdisco.aspx" />
+	<META Name="CollaborationServer" Content="SharePoint Team Web Site">
+	<script>
+	var navBarHelpOverrideKey = "wssmain";
+	</script>
+	
+	<style type="text/css">
+		.ms-siteactionspacer {
+			display: none;
+		}
+</style>
+<style type="text/css">
+	.zz1_TopNavigationMenu_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.zz1_TopNavigationMenu_1 { text-decoration:none; }
+	.zz1_TopNavigationMenu_2 {  }
+	.zz1_TopNavigationMenu_3 { border-style:none; }
+	.zz1_TopNavigationMenu_4 {  }
+	.zz1_TopNavigationMenu_5 {  }
+	.zz1_TopNavigationMenu_6 { border-style:none; }
+	.zz1_TopNavigationMenu_7 {  }
+	.zz1_TopNavigationMenu_8 { background-color:#F2F3F4;border-color:#A7B4CE;border-width:1px;border-style:solid; }
+	.zz1_TopNavigationMenu_9 { border-style:none; }
+	.zz1_TopNavigationMenu_10 {  }
+	.zz1_TopNavigationMenu_11 { border-style:none; }
+	.zz1_TopNavigationMenu_12 {  }
+	.zz1_TopNavigationMenu_13 { border-style:none; }
+	.zz1_TopNavigationMenu_14 {  }
+	.zz1_TopNavigationMenu_15 { border-style:none; }
+	.zz1_TopNavigationMenu_16 { background-color:#CBE3F0; }
+	.zz2_QuickLaunchMenu_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.zz2_QuickLaunchMenu_1 { text-decoration:none; }
+	.zz2_QuickLaunchMenu_2 {  }
+	.zz2_QuickLaunchMenu_3 { border-style:none; }
+	.zz2_QuickLaunchMenu_4 {  }
+	.zz2_QuickLaunchMenu_5 { border-style:none; }
+	.zz2_QuickLaunchMenu_6 {  }
+	.zz2_QuickLaunchMenu_7 {  }
+	.zz2_QuickLaunchMenu_8 {  }
+	.zz2_QuickLaunchMenu_9 { border-style:none; }
+	.zz2_QuickLaunchMenu_10 {  }
+	.zz2_QuickLaunchMenu_11 { border-style:none; }
+	.zz2_QuickLaunchMenu_12 {  }
+	.ctl00_PlaceHolderMain_Bottom_0 { border-color:Black;border-width:1px;border-style:Solid; }
+
+</style></HEAD>
+<BODY scroll="yes" onload="javascript:if (typeof(_spBodyOnLoadWrapper) != 'undefined') _spBodyOnLoadWrapper();">
+  <form name="aspnetForm" method="post" action="Algo mas sobre recursividad.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input type="hidden" name="MSO_PageHashCode" id="MSO_PageHashCode" value="21421157494" />
+<input type="hidden" name="MSOWebPartPage_PostbackSource" id="MSOWebPartPage_PostbackSource" value="" />
+<input type="hidden" name="MSOTlPn_SelectedWpId" id="MSOTlPn_SelectedWpId" value="" />
+<input type="hidden" name="MSOTlPn_View" id="MSOTlPn_View" value="0" />
+<input type="hidden" name="MSOTlPn_ShowSettings" id="MSOTlPn_ShowSettings" value="False" />
+<input type="hidden" name="MSOGallery_SelectedLibrary" id="MSOGallery_SelectedLibrary" value="" />
+<input type="hidden" name="MSOGallery_FilterString" id="MSOGallery_FilterString" value="" />
+<input type="hidden" name="MSOTlPn_Button" id="MSOTlPn_Button" value="none" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__REQUESTDIGEST" id="__REQUESTDIGEST" value="0x25B702AC904B4B50EE3178658C90CD692DC13D600E2CD744521FB1385ED699FF80D148EAED060DC0A3C84719DCCA771A4AB1AC90CA19E727A6A05A921A94C76A,03 Nov 2009 01:06:58 -0000" />
+<input type="hidden" name="MSOSPWebPartManager_DisplayModeName" id="MSOSPWebPartManager_DisplayModeName" value="Browse" />
+<input type="hidden" name="MSOWebPartPage_Shared" id="MSOWebPartPage_Shared" value="" />
+<input type="hidden" name="MSOLayout_LayoutChanges" id="MSOLayout_LayoutChanges" value="" />
+<input type="hidden" name="MSOLayout_InDesignMode" id="MSOLayout_InDesignMode" value="" />
+<input type="hidden" name="MSOSPWebPartManager_OldDisplayModeName" id="MSOSPWebPartManager_OldDisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_StartWebPartEditingName" id="MSOSPWebPartManager_StartWebPartEditingName" value="false" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTQ1MjYxMDc3OA9kFgJmD2QWAmYPZBYCAgMPZBYOAgMPZBYEAg0PZBYCZg9kFgYCAQ8WAh4EVGV4dAUmPHNwYW4gc3R5bGU9J3BhZGRpbmctbGVmdDozcHgnPjwvc3Bhbj5kAgMPDxYEHwAFCE1pIHNpdGlvHgtOYXZpZ2F0ZVVybAU4aHR0cDovL3Blb3BsZS53ZWJvby5tYXRjb20udWguY3U6ODAvX2xheW91dHMvTXlTaXRlLmFzcHhkZAIFDxYCHwAFOTxzcGFuIHN0eWxlPSdwYWRkaW5nLWxlZnQ6NHB4O3BhZGRpbmctcmlnaHQ6M3B4Jz58PC9zcGFuPmQCDw9kFgJmD2QWAgIDDxYCHwAFAXxkAgkPZBYCAgEPZBYCZg9kFgICAQ8PZBYCHgVjbGFzcwUYbXMtc2J0YWJsZSBtcy1zYnRhYmxlLWV4ZAILD2QWAgIDDxYCHgdWaXNpYmxlaBYCZg9kFgQCAg9kFgYCAQ8WAh8DaGQCAw8WAh8DaGQCBQ8WAh8DaGQCAw8PFgIeCUFjY2Vzc0tleQUBL2RkAhkPZBYCAgEPZBYCZg9kFgICAQ9kFgJmD2QWBgIBDw8WDB4ISW1hZ2VVcmwFHS9fbGF5b3V0cy9pbWFnZXMvZWRpdGl0ZW0uZ2lmHwQFAUkeEVBlcm1pc3Npb25Db250ZXh0CymKAU1pY3Jvc29mdC5TaGFyZVBvaW50LlV0aWxpdGllcy5QZXJtaXNzaW9uQ29udGV4dCwgTWljcm9zb2Z0LlNoYXJlUG9pbnQsIFZlcnNpb249MTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49NzFlOWJjZTExMWU5NDI5YwIeC1Blcm1pc3Npb25zKCmAAU1pY3Jvc29mdC5TaGFyZVBvaW50LlNQQmFzZVBlcm1pc3Npb25zLCBNaWNyb3NvZnQuU2hhcmVQb2ludCwgVmVyc2lvbj0xMi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj03MWU5YmNlMTExZTk0MjljDUVkaXRMaXN0SXRlbXMeDU9uQ2xpZW50Q2xpY2sFuQJqYXZhc2NyaXB0OlNUU05hdmlnYXRlV2l0aENoZWNrb3V0QWxlcnQoJ1x1MDAyZmRvY2VuY2lhXHUwMDJmcHJvZ3JhbWFjaW9uXHUwMDJmRWplcmNpY2lvc1x1MDAyZkZvcm1zXHUwMDJmRWRpdEZvcm0uYXNweD9JRD0yMCcsJzAnLCcwJywnXHUwMDJmZG9jZW5jaWFcdTAwMmZwcm9ncmFtYWNpb25cdTAwMmZFamVyY2ljaW9zXHUwMDJmQWxnbyBtYXMgc29icmUgcmVjdXJzaXZpZGFkLmFzcHgnLCdodHRwOlx1MDAyZlx1MDAyZnd3dy53ZWJvby5tYXRjb20udWguY3VcdTAwMmZkb2NlbmNpYVx1MDAyZnByb2dyYW1hY2lvbicpOyByZXR1cm4gZmFsc2U7HwEFqwJqYXZhc2NyaXB0OlNUU05hdmlnYXRlV2l0aENoZWNrb3V0QWxlcnQoJ1x1MDAyZmRvY2VuY2lhXHUwMDJmcHJvZ3JhbWFjaW9uXHUwMDJmRWplcmNpY2lvc1x1MDAyZkZvcm1zXHUwMDJmRWRpdEZvcm0uYXNweD9JRD0yMCcsJzAnLCcwJywnXHUwMDJmZG9jZW5jaWFcdTAwMmZwcm9ncmFtYWNpb25cdTAwMmZFamVyY2ljaW9zXHUwMDJmQWxnbyBtYXMgc29icmUgcmVjdXJzaXZpZGFkLmFzcHgnLCdodHRwOlx1MDAyZlx1MDAyZnd3dy53ZWJvby5tYXRjb20udWguY3VcdTAwMmZkb2NlbmNpYVx1MDAyZnByb2dyYW1hY2lvbicpO2RkAgMPDxYGHwEFhAIvZG9jZW5jaWEvcHJvZ3JhbWFjaW9uL19sYXlvdXRzL1ZlcnNpb25EaWZmLmFzcHg/TGlzdD0lN0JDNjM2MEQ2RSUyRDQ0OEMlMkQ0MzVEJTJEQjk1NiUyRDgwMUU5RjVCOUQyMyU3RCZJRD0yMCZTb3VyY2U9JTJGZG9jZW5jaWElMkZwcm9ncmFtYWNpb24lMkYlNUZsYXlvdXRzJTJGVmVyc2lvbkRpZmYlMkVhc3B4JTNGTGlzdCUzRCUyNTdCQzYzNjBENkUlMjUyRDQ0OEMlMjUyRDQzNUQlMjUyREI5NTYlMjUyRDgwMUU5RjVCOUQyMyUyNTdEJTI2SUQlM0QyMB8GCysEAh8HKCsFDFZpZXdWZXJzaW9uc2RkAgUPDxYCHwEFbC9kb2NlbmNpYS9wcm9ncmFtYWNpb24vX2xheW91dHMvQmFja0xpbmtzLmFzcHg/TGlzdD0lN0JDNjM2MEQ2RSUyRDQ0OEMlMkQ0MzVEJTJEQjk1NiUyRDgwMUU5RjVCOUQyMyU3RCZJRD0yMGRkAiUPZBYCAgcPDxYCHwNoZBYCAgUPZBYCAgEPPCsACQEADxYCHg1OZXZlckV4cGFuZGVkZ2RkAicPZBYCAgEPZBYCZg9kFgYCAQ8PFgIfAQU6L2RvY2VuY2lhL3Byb2dyYW1hY2lvbi9FamVyY2ljaW9zL0Zvcm1zL1JlY2VudENoYW5nZXMuYXNweGRkAgMPZBYKZg9kFgICAQ8PFgQfAQVmL2RvY2VuY2lhL3Byb2dyYW1hY2lvbi9FamVyY2ljaW9zL1NlbWFuYSUyMGRlJTIwbGElMjAxMyUyMGElMjBsYSUyMDE2JTIwLSUyME1hcyUyMFJlY3Vyc2lvbiUyMEF1bi5hc3B4HwAFK1NlbWFuYSBkZSBsYSAxMyBhIGxhIDE2IC0gTWFzIFJlY3Vyc2lvbiBBdW5kZAIBD2QWAgIBDw8WBB8BBT4vZG9jZW5jaWEvcHJvZ3JhbWFjaW9uL0VqZXJjaWNpb3MvU2VtYW5hJTIwNSUyMC0lMjBDaWNsb3MuYXNweB8ABRFTZW1hbmEgNSAtIENpY2xvc2RkAgIPZBYCAgEPDxYEHwEFPi9kb2NlbmNpYS9wcm9ncmFtYWNpb24vRWplcmNpY2lvcy9TZW1hbmElMjA2JTIwLSUyMEFycmF5cy5hc3B4HwAFEVNlbWFuYSA2IC0gQXJyYXlzZGQCAw9kFgICAQ8PFgQfAQVEL2RvY2VuY2lhL3Byb2dyYW1hY2lvbi9FamVyY2ljaW9zL1NlbWFuYSUyMDclMjAtJTIwTWFzJTIwQXJyYXlzLmFzcHgfAAUVU2VtYW5hIDcgLSBNYXMgQXJyYXlzZGQCBA9kFgICAQ8PFgQfAQVCL2RvY2VuY2lhL3Byb2dyYW1hY2lvbi9FamVyY2ljaW9zL1NlbWFuYSUyMDglMjAtJTIwQWxnb3JpdG1vcy5hc3B4HwAFFVNlbWFuYSA4IC0gQWxnb3JpdG1vc2RkAgUPDxYEHwEFNS9kb2NlbmNpYS9wcm9ncmFtYWNpb24vRWplcmNpY2lvcy9Gb3Jtcy9BbGxQYWdlcy5hc3B4HwAFFlZlciBUb2RhcyBsYXMgcMOhZ2luYXNkZAIvD2QWAgIED2QWBgIBDxYCHhNQcmV2aW91c0NvbnRyb2xNb2RlCymIAU1pY3Jvc29mdC5TaGFyZVBvaW50LldlYkNvbnRyb2xzLlNQQ29udHJvbE1vZGUsIE1pY3Jvc29mdC5TaGFyZVBvaW50LCBWZXJzaW9uPTEyLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTcxZTliY2UxMTFlOTQyOWMBFgJmDxYCHwoLKwYBZAIFD2QWAmYPDxYCHwNoZGQCBw9kFgQCAQ8WAh8KCysGARYCZg8WAh8KCysGAWQCAw8WAh8KCysGARYCZg8WAh8KCysGAWQYAQVFY3RsMDAkUGxhY2VIb2xkZXJUb3BOYXZCYXIkUGxhY2VIb2xkZXJIb3Jpem9udGFsTmF2JFRvcE5hdmlnYXRpb25NZW51Dw9kBRZEb2NlbmNpYVxQcm9ncmFtYWNpw7NuZI78rnd8Sd7Hy6ieEAHJSYfdNliT" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=NDKgfs3BDjO9dFJsSdx11A2&amp;t=633834051612265882" type="text/javascript"></script>
+
+<script> var MSOWebPartPageFormName = 'aspnetForm';</script>
+<script type="text/javascript">
+//<![CDATA[
+var originalFormAction = document.forms[0].action;
+function FetchCallbackMenuItems(menutemplate)
+{
+   var template=document.getElementById(menutemplate);
+   if(template == null || (template != null && template.hasChildNodes()))
+   {
+      return;
+   }
+   __theFormPostData = '';
+   WebForm_InitCallback();
+   var lastFormAction = document.forms[0].action;
+   document.forms[0].action = originalFormAction;
+   WebForm_DoCallback('ctl00$PlaceHolderGlobalNavigation$ctl08$MyLinksMenu','',PopulateCallbackMenuItems,'^R^,^F^,ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu,ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate',null,false);
+   document.forms[0].action = lastFormAction;
+}
+//]]>
+</script>
+
+<script>
+function _spNavigateHierarchy(nodeDiv, dataSourceId, dataPath, url, listInContext, type) {
+    ProcessDefaultNavigateHierarchy(nodeDiv, dataSourceId, dataPath, url, listInContext, type, document.forms.aspnetForm, "", "\u002fdocencia\u002fprogramacion\u002fEjercicios\u002fAlgo mas sobre recursividad.aspx");
+}
+</script>
+<script src="/WebResource.axd?d=J7qD7TSj3gRDh1f4eyE52A2&amp;t=633834051612265882" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+UpdateFormDigest('\u002fdocencia\u002fprogramacion', 1440000);return _spFormOnSubmitWrapper();
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBgLCtd2NBQKpn5bCCwKWyaSnBgL5zYOUAgLUnYjFCALNrvW5AxT2S8pxU1/lyU/OXaXZ4caL9bgn" />
+</div>
+	
+  <TABLE class="ms-main" CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH="100%" HEIGHT="100%">
+	<tr><td>
+	   <table CELLPADDING=0 CELLSPACING=0 BORDER=0 WIDTH="100%">
+		<tr>
+		 <td colspan=4 class="ms-globalbreadcrumb">
+			<span id="TurnOnAccessibility" style="display:none">
+			   <a href="#" class="ms-skip" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();return false;">Activar el modo de accesibilidad</a>
+			</span>
+			<a href="javascript:;" onclick="javascript:this.href='#mainContent';" class="ms-skip" AccessKey="J">Saltar al contenido principal</a>
+		 <table cellpadding=0 cellspacing=0 height=100% class="ms-globalleft">
+		   <tr>
+			<td class="ms-globallinks" style="padding-top: 2px;" height=100% valign=middle>
+			 <div>
+			  <span id="TurnOffAccessibility" style="display:none">
+				<a href="#" class="ms-acclink" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();return false;">Desactivar el modo de accesibilidad</a>
+			  </span>
+			  
+				<span id="ctl00_PlaceHolderGlobalNavigation_PlaceHolderGlobalNavigationSiteMap_GlobalNavigationSiteMap"><span><a class="ms-sitemapdirectional" href="/docencia">Docencia</a></span></span>
+			  
+			  </div>
+			 </td>
+		   </tr>
+		 </table>
+		 <table cellpadding="0" cellspacing="0" height=100% class="ms-globalright">
+		  <tr>
+			  <td valign="middle" class="ms-globallinks" style="padding-left:3px; padding-right:6px;">
+			  
+			  </td>
+		  <td valign="middle" class="ms-globallinks">
+			
+	 
+	<span style="display:none"><menu type='ServerMenu' id="zz3_ID_PersonalActionMenu" largeIconMode="true"><ie:menuitem id="zz4_ID_PersonalInformation" type="option" iconSrc="/_layouts/images/menuprofile.gif" onMenuClick="javascript:GoToPage('\u002fdocencia\u002fprogramacion\u002f_layouts\u002fuserdisp.aspx?Force=True\u0026ID=' + _spUserId);return false;" text="Mi configuraci&#243;n" description="Actualice su informaci&#243;n de usuario, configuraci&#243;n regional y alertas." menuGroupId="100"></ie:menuitem><ie:menuitem id="zz5_ID_LoginAsDifferentUser" type="option" onMenuClick="javascript:LoginAsAnother('\u002fdocencia\u002fprogramacion\u002f_layouts\u002fAccessDenied.aspx?loginasanotheruser=true', 0)" text="Iniciar sesi&#243;n como usuario diferente" description="Inicie sesi&#243;n con una cuenta diferente." menuGroupId="200"></ie:menuitem><ie:menuitem id="zz6_ID_Logout" type="option" onMenuClick="window.location = '/docencia/programacion/_layouts/SignOut.aspx';" text="Cerrar sesi&#243;n" description="Cierre la sesi&#243;n de este sitio." menuGroupId="200"></ie:menuitem></menu></span><span title="Abrir menú"><div  id="zz7_Menu_t" class="ms-SPLink ms-SpLinkButtonInActive" onmouseover="MMU_PopMenuIfShowing(this);MMU_EcbTableMouseOverOut(this, true)" hoverActive="ms-SPLink ms-SpLinkButtonActive" hoverInactive="ms-SPLink ms-SpLinkButtonInActive" onclick=" MMU_Open(byid('zz3_ID_PersonalActionMenu'), MMU_GetMenuFromClientId('zz7_Menu'),event,false, null, 0);" foa="MMU_GetMenuFromClientId('zz7_Menu')" oncontextmenu="this.click(); return false;" nowrap="nowrap"><a id="zz7_Menu" accesskey="L" href="#" onclick="javascript:return false;" style="cursor:pointer;white-space:nowrap;" onfocus="MMU_EcbLinkOnFocusBlur(byid('zz3_ID_PersonalActionMenu'), this, true);" onkeydown="MMU_EcbLinkOnKeyDown(byid('zz3_ID_PersonalActionMenu'), MMU_GetMenuFromClientId('zz7_Menu'), event);" onclick=" MMU_Open(byid('zz3_ID_PersonalActionMenu'), MMU_GetMenuFromClientId('zz7_Menu'),event,false, null, 0);" oncontextmenu="this.click(); return false;" menuTokenValues="MENUCLIENTID=zz7_Menu,TEMPLATECLIENTID=zz3_ID_PersonalActionMenu" serverclientid="zz7_Menu">Jean Le&#39;Clerc Arrastia<img src="/_layouts/images/blank.gif" border="0" alt="Utilizar Mayús+Entrar para abrir el menú (nueva ventana)"/></a><img align="absbottom" src="/_layouts/images/menudark.gif" alt="" /></div></span><script type="text/javascript" language="javascript">var _spUserId=291;</script>
+
+
+		  </td>
+		  <td style="padding-left:1px;padding-right:3px;" class="ms-globallinks">|</td>
+			  <td valign="middle" class="ms-globallinks">
+				<table cellspacing="0" cellpadding="0">
+				 <tr>
+				  <td class="ms-globallinks">
+<div style="white-space:nowrap;">
+<span style='padding-left:3px'></span>
+<a id="ctl00_PlaceHolderGlobalNavigation_ctl07_hlMySite" href="http://people.weboo.matcom.uh.cu:80/_layouts/MySite.aspx">Mi sitio</a>
+<span style='padding-left:4px;padding-right:3px'>|</span>
+</div>
+</td>
+				  <td class="ms-globallinks">
+<table><tr>
+<td class="ms-globallinks"><span id="ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenu"><span style="display:none"><menu type='ServerMenu' id="ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate" largeIconMode="true"></menu></span><span title="Abrir menú"><span  id="ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu_t" class="ms-SPLink ms-hovercellinactive" onmouseover="MMU_PopMenuIfShowing(this);MMU_EcbTableMouseOverOut(this, true)" hoverActive="ms-SPLink ms-hovercellactive" hoverInactive="ms-SPLink ms-hovercellinactive" onclick="javascript:FetchCallbackMenuItems(&#39;ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate&#39;); MMU_Open(byid('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate'), MMU_GetMenuFromClientId('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu'),event,true, null, 0);" foa="MMU_GetMenuFromClientId('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu')" oncontextmenu="this.click(); return false;" nowrap="nowrap"><a id="ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu" accesskey="M" href="#" onclick="javascript:return false;" style="cursor:pointer;white-space:nowrap;" onfocus="MMU_EcbLinkOnFocusBlur(byid('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate'), this, true);" onkeydown="MMU_EcbLinkOnKeyDown(byid('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate'), MMU_GetMenuFromClientId('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu'), event);" onclick="javascript:FetchCallbackMenuItems(&#39;ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate&#39;); MMU_Open(byid('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate'), MMU_GetMenuFromClientId('ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu'),event,true, null, 0);" oncontextmenu="this.click(); return false;" menuTokenValues="MENUCLIENTID=ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu,TEMPLATECLIENTID=ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenuTemplate" serverclientid="ctl00_PlaceHolderGlobalNavigation_ctl08_MyLinksMenuMenu">Mis vínculos<img src="/_layouts/images/blank.gif" border="0" alt="Utilizar Mayús+Entrar para abrir el menú (nueva ventana)"/></a><img align="absbottom" src="/_layouts/images/menudark.gif" alt="" /></span></span></span></td>
+<td class="ms-globallinks">|</td>
+</tr></table>
+</td>
+				 </tr>
+				</table>
+			  </td>
+			  <td valign="middle" class="ms-globallinks">&nbsp;
+				<a href="javascript:TopHelpButtonClick('NavBarHelpHome')" id="ctl00_PlaceHolderGlobalNavigation_TopHelpLink" AccessKey="6" title="Ayuda (nueva ventana)"><img src="/_layouts/images/helpicon.gif" align="absmiddle" border="0" alt="Ayuda (nueva ventana)" /></a>
+			  </td>
+			  </tr>
+			</table>
+			</td>
+		   </tr>
+	   </table>
+	  </td></tr>
+	<tr>
+	 <td class="ms-globalTitleArea">
+	  <table width=100% cellpadding=0 cellspacing=0 border=0>
+	   <tr>
+		<td id="GlobalTitleAreaImage" class="ms-titleimagearea"><img id="ctl00_onetidHeadbnnr0" src="/_layouts/images/titlegraphic.gif" alt="" style="border-width:0px;" /></td>
+		<td class="ms-sitetitle" width=100%>
+		  
+		  <h1 class="ms-sitetitle">
+		   <a id="ctl00_PlaceHolderSiteName_onetidProjectPropertyTitle" href="/docencia/programacion/">
+			 Programación
+		   </a>
+		  </h1>
+		  
+		</td>
+		<td style="padding-top:8px;" valign=top>
+		  
+	<table TOPLEVEL border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td valign="top"><div WebPartID="00000000-0000-0000-0000-000000000000" HasPers="true" id="WebPartWPQ1" width="100%" OnlyForMePart="true" allowDelete="false" style="" ><div id="SRSB"> <div>
+			<input name="ctl00$PlaceHolderSearchArea$ctl01$ctl00" type="hidden" id="ctl00_PlaceHolderSearchArea_ctl01_ctl00" value="http://www.weboo.matcom.uh.cu/docencia/programacion" /><table class="ms-sbtable ms-sbtable-ex" border="0">
+				<tr class="ms-sbrow">
+					<td class="ms-sbscopes ms-sbcell"><select name="ctl00$PlaceHolderSearchArea$ctl01$SBScopesDDL" id="ctl00_PlaceHolderSearchArea_ctl01_SBScopesDDL" title="Ámbito de búsqueda" class="ms-sbscopes">
+						<option value="Este sitio">Este sitio: Programaci&#243;n</option>
+						<option selected="selected" value="">All Sites</option>
+						<option value="/docencia/Search/peopleresults.aspx">People</option>
+
+					</select></td><td class="ms-sbcell"><input name="ctl00$PlaceHolderSearchArea$ctl01$S3031AEBB_InputKeywords" type="text" maxlength="200" id="ctl00_PlaceHolderSearchArea_ctl01_S3031AEBB_InputKeywords" accesskey="S" title="Escriba las palabras de búsqueda" class="ms-sbplain" alt="Escriba las palabras de búsqueda" onkeypress="javascript:return S3031AEBB_OSBEK(event);" style="width:170px;" /></td><td class="ms-sbgo ms-sbcell"><a id="ctl00_PlaceHolderSearchArea_ctl01_S3031AEBB_go" title="Iniciar la búsqueda" href="javascript:S3031AEBB_Submit()"><img title="Iniciar la búsqueda" onmouseover="this.src='/_layouts/images/gosearch.gif'" onmouseout="this.src='/_layouts/images/gosearch.gif'" alt="Iniciar la búsqueda" src="/_layouts/images/gosearch.gif" style="border-width:0px;" /></a></td><td class="ms-sbcell ms-sblink"><a id="ctl00_PlaceHolderSearchArea_ctl01_S3031AEBB_AdvSearchLink" title="Búsqueda avanzada" href="/docencia/Search/Advanced.aspx">Búsqueda avanzada</a></td><td class="ms-sbLastcell"></td>
+				</tr>
+			</table>
+		</div></div></div></td>
+	</tr>
+</table>
+
+		</td>
+	   </tr>
+	  </table>
+	 </td>
+	</tr>
+	<TR>
+	 <TD id="onetIdTopNavBarContainer" WIDTH=100% class="ms-bannerContainer">
+		
+		  <table class="ms-bannerframe" border="0" cellspacing="0" cellpadding="0" width="100%">
+		   <tr>
+			<td nowrap valign="middle"></td>
+			<td class=ms-banner width=99% nowrap ID="HBN100">
+				
+	<table id="zz1_TopNavigationMenu" class="ms-topNavContainer zz1_TopNavigationMenu_5 zz1_TopNavigationMenu_2" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td onmouseover="Menu_HoverRoot(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Portal de Docencia" id="zz1_TopNavigationMenun0"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="/docencia/Paginas/default.aspx" accesskey="1" style="border-style:none;font-size:1em;">Docencia</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="zz1_TopNavigationMenu_5">
+			<tr>
+				<td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz1_TopNavigationMenun1"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="http://www.weboo.matcom.uh.cu" style="border-style:none;font-size:1em;">Inicio</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz1_TopNavigationMenun2"><table class="ms-topnav zz1_TopNavigationMenu_4 ms-topnavselected zz1_TopNavigationMenu_10" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3 ms-topnavselected zz1_TopNavigationMenu_9" href="/docencia/programacion" style="border-style:none;font-size:1em;">Programación</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Bienvenidos al Sitio Oficial de la Asignatura Estrucutra de Datos y Algoritmos I" id="zz1_TopNavigationMenun3"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="/docencia/eda1" style="border-style:none;font-size:1em;">EDA1</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Estructura de Datos y Algoritmos II" id="zz1_TopNavigationMenun4"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="/docencia/eda2" style="border-style:none;font-size:1em;">EDA2</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Lenguajes de Programación" id="zz1_TopNavigationMenun5"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="/docencia/lp" style="border-style:none;font-size:1em;">LP</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Curso Optativo ASP.NET" id="zz1_TopNavigationMenun6"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="/docencia/aspnet" style="border-style:none;font-size:1em;">ASP.NET</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Curso optativo de gráficos por computadora" id="zz1_TopNavigationMenun7"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="/docencia/graficos" style="border-style:none;font-size:1em;">Gráficos</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Sitio oficial de la asignatura de matemática numérica." id="zz1_TopNavigationMenun8"><table class="ms-topnav zz1_TopNavigationMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="white-space:nowrap;"><a class="zz1_TopNavigationMenu_1 ms-topnav zz1_TopNavigationMenu_3" href="/docencia/mn" style="border-style:none;font-size:1em;">Matemática Numérica</a></td>
+					</tr>
+				</table></td><td style="width:0px;"></td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+	
+				
+			</td>
+			<td class=ms-banner>&nbsp;&nbsp;</td>
+			<td valign=bottom align=right style="position:relative;bottom:0;left:0;">
+			 <table cellpadding=0 cellspacing=0 border=0>
+			  <tr>
+			   <td>
+				<table height=100% class="ms-siteaction" cellpadding=0 cellspacing=0>
+				 <tr>
+					   <td class="ms-siteactionsmenu" id="siteactiontd">
+					   
+					</td>
+				 </tr>
+				</table>
+			   </td>
+			  </tr>
+			 </table>
+			</td>
+		   </tr>
+		  </table>
+		
+	 </TD>
+	</TR>
+	
+		
+
+	
+	
+	
+	
+	<TR height="100%"><TD><TABLE width="100%" height="100%" cellspacing="0" cellpadding="0">
+	<tr>
+	 <td class="ms-titlearealeft" id="TitleAreaImageCell" valign="middle" nowrap><div style="height:100%" class="ms-titleareaframe"><img id="ctl00_PlaceHolderPageImage_onetidtpweb1" width="145" height="54" src="/_layouts/images/wiki.png" alt="" /></div></td>
+	 <td class="ms-titleareaframe" id="TitleAreaFrameClass">
+	  
+	   <div class="ms-titleareaframe"><IMG SRC="/_layouts/images/blank.gif" width=1 height=100% alt=""></div>
+	  
+	 </td>
+	<td valign=top id="onetidPageTitleAreaFrame" class='ms-pagetitleareaframe' nowrap>
+	  <table id="onetidPageTitleAreaTable" cellpadding=0 cellspacing=0 width=100% border="0">
+	   <tr>
+		<td valign="top" class="ms-titlearea">
+		 
+		  <span id="ctl00_PlaceHolderTitleBreadcrumb_ContentMap"><span><a class="ms-sitemapdirectional" href="/docencia">Docencia</a></span><span> &gt; </span><span><a class="ms-sitemapdirectional" href="/docencia/programacion">Programaci&#243;n</a></span><span> &gt; </span><span><a class="ms-sitemapdirectional" href="/docencia/programacion/Ejercicios/Forms/AllPages.aspx">Ejercicios</a></span><span> &gt; </span><span class="ms-sitemapdirectional">Algo mas sobre recursividad</span></span> &nbsp;
+		 
+		</td>
+	   </tr>
+	   <tr>
+		<td height=100% valign=top ID=onetidPageTitle class="ms-pagetitle">
+		  <h2 class="ms-pagetitle">
+			
+	Algo mas sobre recursividad
+
+		  </h2>
+		</td>
+	   </tr>
+	  </table>
+	 </td>
+	 <td class="ms-titlearearight">
+		
+	
+		<div style="position:relative;top:0;left:0;">
+		<div class="ms-wikieditouter">
+		<table  id="miniconsole" cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td>
+			<table class="ms-wikieditsecond" cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td>
+				<table class="ms-wikieditthird" cellspacing="0" cellpadding="0" border="0" width="100%"><tr><td>
+					<!-- this is for the orange cast inside the menu -->
+					<table class="ms-wikieditorange" cellspacing="0" cellpadding="0" border="0" width="100%">
+					<tr>
+						<td class="ms-wikieditorangeinnera" style=";width:100%;">&nbsp;</td>
+					</tr>
+					<tr><td>
+						
+<table class="ms-wikitoolbar" cellpadding="2" cellspacing="0" border="0" id="ctl00_PlaceHolderMiniConsole_ctl00_ctl00_ctl00" width="100%" >
+  <tr>
+
+
+		<td class="ms-toolbar" nowrap="true">
+	<table cellpadding='1' cellspacing='0'><tr><td class='ms-toolbar' nowrap><a id="ctl00_PlaceHolderMiniConsole_ctl00_ctl00_ctl00_RptControls_WikiPageHistory" style="visibility:hidden;" href="/docencia/programacion/_layouts/VersionDiff.aspx?List=%7BC6360D6E%2D448C%2D435D%2DB956%2D801E9F5B9D23%7D&ID=20&Source=%2Fdocencia%2Fprogramacion%2F%5Flayouts%2FVersionDiff%2Easpx%3FList%3D%257BC6360D6E%252D448C%252D435D%252DB956%252D801E9F5B9D23%257D%26ID%3D20"></a><a href="/docencia/programacion/_layouts/VersionDiff.aspx?List=%7BC6360D6E%2D448C%2D435D%2DB956%2D801E9F5B9D23%7D&ID=20&Source=%2Fdocencia%2Fprogramacion%2F%5Flayouts%2FVersionDiff%2Easpx%3FList%3D%257BC6360D6E%252D448C%252D435D%252DB956%252D801E9F5B9D23%257D%26ID%3D20" id="ctl00_PlaceHolderMiniConsole_ctl00_ctl00_ctl00_RptControls_WikiPageHistory_LinkText" class='ms-toolbar'>Historial</a></td></tr></table>
+		</td>
+	
+		<td class=ms-separator>|</td>
+	
+		<td class="ms-toolbar" nowrap="true">
+	<table cellpadding='1' cellspacing='0'><tr><td class='ms-toolbar' nowrap><a id="ctl00_PlaceHolderMiniConsole_ctl00_ctl00_ctl00_RptControls_WikiIncomingLinks" style="visibility:hidden;" href="/docencia/programacion/_layouts/BackLinks.aspx?List=%7BC6360D6E%2D448C%2D435D%2DB956%2D801E9F5B9D23%7D&ID=20"></a><a href="/docencia/programacion/_layouts/BackLinks.aspx?List=%7BC6360D6E%2D448C%2D435D%2DB956%2D801E9F5B9D23%7D&ID=20" id="ctl00_PlaceHolderMiniConsole_ctl00_ctl00_ctl00_RptControls_WikiIncomingLinks_LinkText" class='ms-toolbar'>Vínculos entrantes</a></td></tr></table>
+		</td>
+	
+	<td width="99%" class="ms-toolbar" nowrap><IMG SRC="/_layouts/images/blank.gif" width=1 height=18 alt=""></td>
+
+
+  </tr>
+</table>
+
+					</td></tr></table>
+				 </td></tr></table>
+			</td></tr></table>
+		</td></tr></table>
+		</div></div>
+	
+
+		
+<div class="ms-titleareaframe" style='height:100%'><IMG SRC="/_layouts/images/blank.gif" width=1 height=1 alt=""></div>
+</td>
+	</tr>
+
+	<TR>
+	  <TD class="ms-leftareacell" valign=top height=100% id="LeftNavigationAreaCell">
+	   <table class=ms-nav width=100% height=100% cellpadding=0 cellspacing=0>
+		<tr>
+		 <td>
+		  <TABLE height="100%" class=ms-navframe CELLPADDING=0 CELLSPACING=0 border="0">
+		   <tr valign="top">
+			<td width="4px"><IMG SRC="/_layouts/images/blank.gif" width=4 height=1 alt=""></td>
+			<td valign="top" width="100%">
+			  
+			  
+			  
+			  
+				<div class="ms-quicklaunchouter">
+				<div class="ms-quickLaunch" style="width:100%">
+				<h3 class="ms-standardheader"><label class="ms-hidden">Inicio rápido</label>
+				<span>
+				<div class="ms-quicklaunchheader"><a id="ctl00_PlaceHolderLeftNavBar_idNavLinkViewAll" accesskey="3" href="/docencia/programacion/_layouts/viewlsts.aspx">Ver todo el contenido del sitio</a></div>
+				</span>
+				</h3>
+				<div id="ctl00_PlaceHolderLeftNavBar_QuickLaunchNavigationManager">
+	
+				<div>
+					
+					<table id="zz2_QuickLaunchMenu" class="ms-navSubMenu1 zz2_QuickLaunchMenu_7 zz2_QuickLaunchMenu_2" cellpadding="0" cellspacing="0" border="0">
+		<tr onmouseover="Menu_HoverRoot(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun0">
+			<td><table class="ms-navheader zz2_QuickLaunchMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navheader zz2_QuickLaunchMenu_3" href="/docencia/programacion/_layouts/viewlsts.aspx?BaseType=1" style="border-style:none;font-size:1em;">Documentos</a></td>
+				</tr>
+			</table></td>
+		</tr><tr>
+			<td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="ms-navSubMenu2 zz2_QuickLaunchMenu_8">
+				<tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun1">
+					<td><table class="ms-navitem zz2_QuickLaunchMenu_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navitem zz2_QuickLaunchMenu_5" href="/docencia/programacion/Documentos%20compartidos/Forms/AllItems.aspx" style="border-style:none;font-size:1em;">Documentos compartidos</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun2">
+					<td><table class="ms-navitem zz2_QuickLaunchMenu_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navitem zz2_QuickLaunchMenu_5" href="/docencia/programacion/Ejercicios" style="border-style:none;font-size:1em;">Ejercicios</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun3">
+					<td><table class="ms-navitem zz2_QuickLaunchMenu_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navitem zz2_QuickLaunchMenu_5" href="/docencia/programacion/Documentos%20privados/Forms/AllItems.aspx" style="border-style:none;font-size:1em;">Documentos privados</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun4">
+					<td><table class="ms-navitem zz2_QuickLaunchMenu_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navitem zz2_QuickLaunchMenu_5" href="/docencia/programacion/Documentacin/Forms/Agrupado%20por%20Categoria.aspx" style="border-style:none;font-size:1em;">Documentación</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun5">
+					<td><table class="ms-navitem zz2_QuickLaunchMenu_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navitem zz2_QuickLaunchMenu_5" href="/docencia/programacion/Tareas/Forms/AllItems.aspx" style="border-style:none;font-size:1em;">Tareas</a></td>
+						</tr>
+					</table></td>
+				</tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun6">
+					<td><table class="ms-navitem zz2_QuickLaunchMenu_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navitem zz2_QuickLaunchMenu_5" href="/docencia/programacion/Tutoriales" style="border-style:none;font-size:1em;">Tutoriales</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverRoot(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun7">
+			<td><table class="ms-navheader zz2_QuickLaunchMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navheader zz2_QuickLaunchMenu_3" href="/docencia/programacion/_layouts/viewlsts.aspx?BaseType=0" style="border-style:none;font-size:1em;">Listas</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverRoot(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun8">
+			<td><table class="ms-navheader zz2_QuickLaunchMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navheader zz2_QuickLaunchMenu_3" href="/docencia/programacion/_layouts/viewlsts.aspx?BaseType=0&amp;ListTemplate=108" style="border-style:none;font-size:1em;">Discusiones</a></td>
+				</tr>
+			</table></td>
+		</tr><tr>
+			<td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="ms-navSubMenu2 zz2_QuickLaunchMenu_8">
+				<tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun9">
+					<td><table class="ms-navitem zz2_QuickLaunchMenu_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr>
+							<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navitem zz2_QuickLaunchMenu_5" href="/docencia/programacion/Lists/Discusion%20de%20grupo/AllItems.aspx" style="border-style:none;font-size:1em;">Discusión de Grupo</a></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverRoot(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun10">
+			<td><table class="ms-navheader zz2_QuickLaunchMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navheader zz2_QuickLaunchMenu_3" href="/docencia/programacion/_layouts/viewlsts.aspx?ShowSites=1" style="border-style:none;font-size:1em;">Sitios</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverRoot(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" id="zz2_QuickLaunchMenun11">
+			<td><table class="ms-navheader zz2_QuickLaunchMenu_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz2_QuickLaunchMenu_1 ms-navheader zz2_QuickLaunchMenu_3" href="/docencia/programacion/_layouts/people.aspx" style="border-style:none;font-size:1em;">Personas y grupos</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table>
+				</div>
+				
+</div>
+				
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr><td>
+		<table class="ms-recyclebin" width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr><td nowrap>
+		
+		</td></tr>
+		</table>
+		</td></tr></table>
+				</div>
+				</div>
+			  
+			  
+		
+		<div class="ms-quicklaunchouter">
+			<div class="ms-quickLaunch" style="width:100%">
+				<div class="ms-quicklaunchheader">
+					<a id="ctl00_PlaceHolderLeftActions_RecentChanges_ctl00_RecentChangesHeaderLink" href="/docencia/programacion/Ejercicios/Forms/RecentChanges.aspx">Cambios recientes</a>
+				</div>
+				<div>
+					<table id="NavBarRecentChanges" class="ms-navSubMenu1" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0" class="ms-navSubMenu2" >
+									
+		<tr>
+			<td>
+				<table  class="ms-navitem" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="width:100%;">
+								<a id="ctl00_PlaceHolderLeftActions_RecentChanges_ctl00_RecentChangesIterator_ctl00_RecentChange" class="ms-navitem" href="/docencia/programacion/Ejercicios/Semana%20de%20la%2013%20a%20la%2016%20-%20Mas%20Recursion%20Aun.aspx">Semana de la 13 a la 16 - Mas Recursion Aun</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>
+				<table  class="ms-navitem" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="width:100%;">
+								<a id="ctl00_PlaceHolderLeftActions_RecentChanges_ctl00_RecentChangesIterator_ctl01_RecentChange" class="ms-navitem" href="/docencia/programacion/Ejercicios/Semana%205%20-%20Ciclos.aspx">Semana 5 - Ciclos</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>
+				<table  class="ms-navitem" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="width:100%;">
+								<a id="ctl00_PlaceHolderLeftActions_RecentChanges_ctl00_RecentChangesIterator_ctl02_RecentChange" class="ms-navitem" href="/docencia/programacion/Ejercicios/Semana%206%20-%20Arrays.aspx">Semana 6 - Arrays</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>
+				<table  class="ms-navitem" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="width:100%;">
+								<a id="ctl00_PlaceHolderLeftActions_RecentChanges_ctl00_RecentChangesIterator_ctl03_RecentChange" class="ms-navitem" href="/docencia/programacion/Ejercicios/Semana%207%20-%20Mas%20Arrays.aspx">Semana 7 - Mas Arrays</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>
+				<table  class="ms-navitem" cellpadding="0" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td style="width:100%;">
+								<a id="ctl00_PlaceHolderLeftActions_RecentChanges_ctl00_RecentChangesIterator_ctl04_RecentChange" class="ms-navitem" href="/docencia/programacion/Ejercicios/Semana%208%20-%20Algoritmos.aspx">Semana 8 - Algoritmos</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div>
+					<table width=100% cellpadding=0 cellspacing=0 border=0 >
+						<tr>
+							<td class="ms-recentchanges"><img src="/_layouts/images/rect.gif" alt=""></td>
+							<td width=100% valign=top style="padding: 4px">
+								<a id="ctl00_PlaceHolderLeftActions_RecentChanges_ctl00_ViewAllPagesLink" class="ms-addnew" href="/docencia/programacion/Ejercicios/Forms/AllPages.aspx">Ver Todas las páginas</a>
+							</td>
+						</tr>
+				   </table>
+				</div>
+			</div>
+		</div>
+	
+
+			</td>
+		   </tr>
+		   <tr><td colspan=2><IMG SRC="/_layouts/images/blank.gif" width=138 height=1 alt=""></td></tr>
+		  </TABLE>
+		 </td>
+		 <td></td>
+		</tr>
+	   </table>
+	  </TD>
+	  <td>
+<div class="ms-pagemargin"><IMG SRC="/_layouts/images/blank.gif" width=10 height=1 alt=""></div>
+</td>
+	  <td class='ms-bodyareacell' valign="top">
+		<PlaceHolder id="ctl00_MSO_ContentDiv">
+		<table id="MSO_ContentTable" width=100% height="100%" border="0" cellspacing="0" cellpadding="0" class="ms-propertysheet">
+		  <tr>
+			 <td class='ms-bodyareaframe' valign="top" height="100%">
+			   <A name="mainContent"></A>
+				
+				
+	<div class="ms-wikicontent"><div class=ExternalClass3D6293B740F34183A8088C9EF22423C3>
+<div>
+<h1 style="margin:24pt 0in 0pt"><span lang=ES-TRAD><font face=Cambria color="#365f91" size=5>Unos cuantos ejercicios de Recursividad</font></span></h1>
+<h2 style="margin:10pt 0in 0pt"><span lang=ES-TRAD><font size=4><font color="#4f81bd"><font face=Cambria>Incremental</font></font></font></span></h2>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>1-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Factorial (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in"><span lang=ES-TRAD><font face=Calibri><font size=3>Haga un algoritmo recursivo que dado un número determine su factorial. N! = 1 * 2 * … * N</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in"><span class=Code><font color="#215868"><font face=Nina><font size=3>long Factorial (long N) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in"><span class=Code><font face=Nina color="#215868" size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>2-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Fibonacci (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in"><span lang=ES-TRAD><font face=Calibri><font size=3>Haga un algoritmo recursivo que dado un número k determine el k-ésimo término de la sucesión de Fibonacci. (1, 1, 2, 3, 5, 8, 13, …)</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in"><span class=Code><font color="#215868"><font face=Nina><font size=3>int Fibonacci (int K) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in"><span class=Code><font face=Nina color="#215868" size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>3-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Escaleras (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Se define una escalera de longitud N como una secuencia de N losas consecutivas. Una losa puede estar vertical u horizontal y todas las losas están conectadas al extremo superior o derecho de la anterior. Se tiene que cumplir que no hay dos losas consecutivas verticales (No hay peldaños de altura mayor que 2).</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Haga un algoritmo que dado un número N determine cuantas escaleras diferentes se pueden formar con N losas.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int CantidadEscaleras (int losas) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font face=Nina color="#215868" size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>4-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>InsertionSort (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Haga el algoritmo de ordenamiento por inserciones de manera recursiva.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>void InsertionSort (int[] a) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font face=Nina color="#215868" size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>5-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Randomize (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri><font size=3>Haga un algoritmo que “desordene” un arreglo de números dando a todos la misma probabilidad de ser “cambiados”. (<i>Hint: Analice el ejercicio usando el mismo enfoque del ejercicio anterior</i>)</font></font></span></p>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt 0.5in;text-align:justify"><span class=Code><span lang=ES><font size=3><font color="#215868"><font face=Nina>void Randomize (int[] a) {…}</font></font></font></span></span></p>
+<h2 style="margin:10pt 0in 0pt"><span lang=ES><font size=4><font color="#4f81bd"><font face=Cambria>Divide y Vencerás</font></font></font></span></h2>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>1-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Mínimo en un arreglo (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Determine el menor elemento de un arreglo usando un enfoque DV.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int Minimo (int[] a) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>2-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Búsqueda Binaria (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri><font size=3>Dado un arreglo ordenado, determinar dónde se encuentra (-1 en caso contrario) un elemento determinado en <i>O (log n)</i>.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int IndexOf (int[] orderedArray) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>3-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>MergeSort (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri><font size=3>Ordene un arreglo usando el algoritmo de ordenación por mezclas. (<i>Hint: ¿dados dos arreglos ordenados se puede hallar la unión de manera ordenada?</i>)</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>void MergeSort (int[] a) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>4-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Paréntesis (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Dado un número N de pares de paréntesis, determinar la cantidad de cadenas que se pueden formar y que queden balanceados.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int CantidadParentesis (int N) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>5-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Neveras (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Se tiene una secuencia de neveras puestas en el suelo. Cada nevera tiene un peso específico pero todas las neveras tienen el mismo tamaño. Se puede poner una nevera sobre otra formando pilas y a su vez pilas sobre otras etc. El apilamiento sólo es posible entre neveras (o pila de neveras) que estén una al lado de la otra. El costo de apilar una pila A sobre una pila B es igual a la altura de B por el peso de A (considere una nevera como una pila de altura 1).</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Usted deberá implementar un método que dado la secuencia de pesos de las neveras determine el menor costo que se puede lograr para apilarlas todas en una única pila.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>El ejemplo muestra el mejor caso para 3 neveras con pesos 4, 1 y 6 resultando costo total 6.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Pilas<span>                       </span>Movimiento<span>                       </span>Costo</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>4, 1, 6<span>                    </span>1 &gt; 4<span>                                       </span>1*1 = 1</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>(4, 1), 6<span>                 </span>(4, 1) &gt; 6<span>                               </span>(4 + 1)*1 = 5</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Note que se hubiera movido la nevera de peso 6 para la pila (4,1) el costo hubiera sido 6 * 2 = 12.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int MejorAcomodo (int[] neveras) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font face=Calibri size=3></font> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span><span><font face=Calibri size=3>6-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><font face=Calibri>Oficinas de Correo (</font></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦</span><font face=Calibri>)</font></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Sobre la carretera central se han dispuesto un número N de oficinas de correo que reciben los correos diariamente. Correos de Cuba decidió designar de ellas, K oficinas como centrales. Diariamente todos los correos de cada oficina van para la oficina central más cercana. Se desea determinar qué oficinas deben ser seleccionadas como centrales para minimizar el costo total de traslado de los correos de las oficinas comunes a su central más cercana.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Su método recibirá un array con las posiciones (kilómetros) de cada oficina en la carretera. Considere las posiciones ordenadas.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Para el ejemplo: 2, 3, 5, 10, 11, 13 con K = 2, la respuesta debería ser {3, 11} que tiene costo total 6 = (3 - 2) + (5 - 3) + (11 - 10) + (13 - 11).</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int[] DeterminarCentrales (int[] posiciones) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font face=Calibri size=3></font> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span><span><font face=Calibri size=3>7-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Multiplicación de Matrices. (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦</span></b><b><font face=Calibri><span lang=ES-TRAD>)</span></font></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Dos matrices se pueden multiplicar si la cantidad de filas de la primera es igual a la cantidad de columnas de la segunda. Si A es de N*K y B es de K*M la matriz resultante será de N*M y se habrán hecho N*K*M multiplicaciones.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Suponga usted necesita multiplicar una secuencia de P matrices de dimensiones:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font face=Calibri size=3>N<sub>1</sub>*N<sub>2</sub>, N<sub>2</sub>*N<sub>3</sub>, N<sub>3</sub>*N<sub>4</sub>,…, N<sub>p</sub>*N<sub>p+1</sub>.</font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>La cantidad total de multiplicaciones depende del orden en que las matrices se multiplican. Por ello usted debe implementar un método que dada la secuencia de dimensiones N<sub>1</sub>, N<sub>2</sub>,…, N<sub>p</sub>, N<sub>p+1</sub> determine la menor cantidad posible de multiplicaciones necesarias.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Para 2x3, 3x2, 2x4 la cantidad es 28:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>(2x3 * 3x2) * 2x4<span>              </span>costo: 2x3x2 = 12</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>2x2 * 2x4<span>                             </span>costo: 2x2x4 = 16</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>En lugar de 48:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>2x3 * (3x2 * 2x4)<span>              </span>costo: 3x2x4 = 24</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>2x3 * 3x4<span>                             </span>costo: 2x3x4 = 24</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><span lang=ES-TRAD><font color="#215868"><font face=Nina><font size=3>int MinimasMultiplicaciones (int[] dimensiones) {…}</font></font></font></span></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><span lang=ES-TRAD><font face=Nina color="#215868" size=3></font></span></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES-TRAD><span><font face=Calibri size=3>8-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Largest Common Subsecuence (Subsecuencia común más larga) (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦</span></b><b><span lang=ES-TRAD><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Dada dos cadenas de caracteres determinar la subsecuencia común que tenga mayor cantidad de caracteres.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Entre las cadenas CAMBIAMOS y COMIENZOS son subsecuencias comunes, C, MI, CM, CMS, entre otras… sin embargo la subsecuencia común más larga entre <b>C</b>A<b>M</b>B<b>I</b>AM<b>OS</b> y <b>C</b>O<b>MI</b>ENZ<b>OS</b> es: CMIOS.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font size=3><font color="#215868"><font face=Nina>string LCS (string cad1, string cad2) {…} </font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font face=Nina color="#215868" size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span><span><font face=Calibri size=3>9-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><font face=Calibri>String Matching. (</font></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦</span><font face=Calibri>)</font></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>Dos cadenas se dicen que distan en uno si para obtener una de otra hay que insertar, cambiar o quitar un solo carácter. La distancia entre dos cadenas es la menor cantidad de transformaciones que hay que realizar para obtener una a partir de la otra.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>Implemente un algoritmo que dadas dos cadenas, determinar la distancia entre ellas.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify;tab-stops:center 3.5in"><span class=Code><font size=3><font color="#215868"><font face=Nina>int Distancia (string cad1, string cad2) {…}<span>           </span></font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify;tab-stops:center 3.5in"><span class=Code><font face=Nina color="#215868" size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span><span><font face=Calibri size=3>10-</font><span style="font:7pt 'Times New Roman'">   </span></span></span></b><font size=3><b><font face=Calibri>Subsecuencia creciente. (</font></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦</span><font face=Calibri>)</font></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font size=3><font face=Calibri><span lang=ES>Dada una secuencia de</span><span lang=ES-TRAD> números, determinar la subsecuencia creciente más larga.</span></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Ejemplo, para <b>2</b>, 4, 1, <b>3</b>, <b>4</b>, <b>5</b>, 1, <b>6</b>, 3 sería 2 3 4 5 6. (Una subsecuencia creciente no puede repetir elementos y no necesariamente tienen que ser consecutivos).</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify;tab-stops:center 3.5in"><span class=Code><font color="#215868"><font face=Nina><font size=3>int[] SubsecuenciaCreciente (int[] secuencia) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri size=3></font> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span><span><font face=Calibri size=3>11-</font><span style="font:7pt 'Times New Roman'">   </span></span></span></b><font size=3><b><font face=Calibri>Multiplicando. (</font></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦</span><font face=Calibri>)</font></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font size=3><font face=Calibri><span lang=ES>En el planeta Sutherland la multiplicaci</span><span lang=ES-TRAD>ón es diferente a la de aquí. Allá se tienen números de un solo “dígito”, por ejemplo: a, b, c,… y existe una tabla de multiplicar que define el valor para cada posible multiplicación X*Y. Ejemplo:</span></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<table class=MsoNormalTable style="border-right:medium none;border-top:medium none;margin:auto auto auto 0.75in;border-left:medium none;border-bottom:medium none;border-collapse:collapse" cellspacing=0 cellpadding=0 width=104 border=1>
+<tbody>
+<tr style="height:11.3pt">
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:23.4pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:11.3pt;background-color:transparent" valign=top width=31>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri></font></span> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#d9d9d9;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:11.3pt" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>a</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#d9d9d9;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:11.3pt" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>b</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#d9d9d9;padding-bottom:0in;border-left:#e0dfe3;width:18.25pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:11.3pt" valign=top width=24>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>c</font></span></p></td></tr>
+<tr style="height:5.45pt">
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#d9d9d9;padding-bottom:0in;border-left:windowtext 1pt solid;width:23.4pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:5.45pt" valign=top width=31>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>a</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:5.45pt;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>b</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:5.45pt;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>b</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.25pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:5.45pt;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>c</font></span></p></td></tr>
+<tr style="height:13.45pt">
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#d9d9d9;padding-bottom:0in;border-left:windowtext 1pt solid;width:23.4pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:13.45pt" valign=top width=31>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>b</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:13.45pt;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>a</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:13.45pt;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>c</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.25pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:13.45pt;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>b</font></span></p></td></tr>
+<tr>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#d9d9d9;padding-bottom:0in;border-left:windowtext 1pt solid;width:23.4pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=31>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>c</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>c</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>a</font></span></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:18.25pt;padding-top:0in;border-bottom:windowtext 1pt solid;background-color:transparent" valign=top width=24>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 0pt;line-height:normal;text-align:justify"><span lang=ES-TRAD><font face=Calibri>a</font></span></p></td></tr></tbody></table>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Esa matriz representa la tabla de multiplicar de los “números” a, b y c. Como se observa, ab = b y ba = a, por lo que la multiplicación en Sutherland no necesita ser conmutativa ni asociativa. Es por ello que dado una expresión: x<sub>1</sub>x<sub>2</sub>…x<sub>n</sub> son múltiples los resultados que se pueden obtener agrupando con paréntesis.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri><font size=3>Su problema será determinar si se puede obtener cierto valor K a partir de una expresión x<sub>1</sub>x<sub>2</sub>…x<sub>n</sub>.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font size=3><font color="#215868"><font face=Nina>bool Evalua (string números, char[,] tabla, string expresión, char valor) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>Para el caso anterior se llamaría con:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font size=3><font color="#215868"><font face=Nina>Evalua (“abc”, new char[,] { {‘b’,’b’,’c’}, {‘a’,’c’,’b’}, {‘c’,’a’,’a’}}, “bbca”, ‘c’);</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font size=3><font face=Calibri><span lang=ES>y deber</span><span lang=ES-TRAD>ía devolver <b>true</b>. (b(bc))a = c.</span></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span><span><font face=Calibri size=3>12-</font><span style="font:7pt 'Times New Roman'">   </span></span></span></b><font size=3><b><font face=Calibri>Salida de Presos Amigos (</font></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦</span><font face=Calibri>)</font></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>En una prisión los N reclusos están numerados de 0..N-1. Todas las mañanas salen en orden y el guardia los coloca en cada uno de los K campos que tiene el recinto de la siguiente forma: deja los x<sub>1</sub> primeros reclusos en el primer campo, los x<sub>2</sub> siguientes en el segundo, y así sucesivamente (x<sub>1</sub> + x<sub>2</sub> +…+ x<sub>k</sub> = N). El alcalde ha determinado que no debe quedar campo vacío ni con un solo recluso porque se sentiría marginado.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>Los reclusos tienen preferencias en cuanto a con quién desean estar. Si dos amigos caen en un mismo campo se dice que esta preferencia queda satisfecha.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font size=3><font face=Calibri>Dada una matriz de bool donde cada elemento (i, j) devuelve <b>true</b> si los reclusos i y j son amigos y <b>false</b> si no lo son, determine la cantidad de reclusos que el guardia debe dejar en cada campo de manera que queden satisfechas la mayor cantidad posible de preferencias.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><span lang=ES><font color="#215868"><font face=Nina><font size=3>int MayorCantidadDeAmigos (bool[,] sonAmigos, int K) {…}</font></font></font></span></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=ES><span><font face=Calibri size=3>13-</font><span style="font:7pt 'Times New Roman'">   </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Código de Barras (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦♦</span></b><font face=Calibri><b><span lang=ES-TRAD>)</span></b><b><span lang=ES></span></b></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Un código de barras es una secuencia de barras consecutivas alternadas blancas y negras de diferentes grosores. Cada barra tiene un grosor con valor entero y la suma de todos los grosores es K.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Ejemplo:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<table class=MsoNormalTable style="border-right:medium none;border-top:medium none;margin:auto auto auto 59.4pt;border-left:medium none;border-bottom:medium none;border-collapse:collapse" cellspacing=0 cellpadding=0 border=1>
+<tbody>
+<tr style="height:52.9pt">
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#606060;padding-bottom:0in;border-left:windowtext 1pt solid;width:11.8pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:52.9pt" valign=top width=16>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES><font face=Calibri></font></span> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:24.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:52.9pt;background-color:transparent" valign=top width=32>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES><font face=Calibri></font></span> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#666666;padding-bottom:0in;border-left:#e0dfe3;width:11.8pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:52.9pt" valign=top width=16>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES><font face=Calibri></font></span> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:11.8pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:52.9pt;background-color:transparent" valign=top width=16>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES><font face=Calibri></font></span> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#606060;padding-bottom:0in;border-left:#e0dfe3;width:21.4pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:52.9pt" valign=top width=29>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt;text-align:justify"><span lang=ES><font face=Calibri></font></span> </p></td></tr>
+<tr style="height:8.05pt">
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:windowtext 1pt solid;width:11.8pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:8.05pt;background-color:transparent" width=16>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;line-height:normal;text-align:center" align=center><font face=Calibri>1</font></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:24.2pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:8.05pt;background-color:transparent" width=32>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:center" align=center><font face=Calibri>2</font></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:11.8pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:8.05pt;background-color:transparent" width=16>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:center" align=center><font face=Calibri>1</font></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:11.8pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:8.05pt;background-color:transparent" width=16>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;line-height:normal;text-align:center" align=center><font face=Calibri>1</font></p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;padding-bottom:0in;border-left:#e0dfe3;width:21.4pt;padding-top:0in;border-bottom:windowtext 1pt solid;height:8.05pt;background-color:transparent" width=29>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 0pt;line-height:normal;text-align:center" align=center><font face=Calibri>2</font></p></td></tr></tbody></table>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font size=3><font face=Calibri><span lang=ES>Se desea determinar la cantidad de </span><span lang=ES-TRAD>códigos de barras diferentes que pueden ser formados con N barras de grosor menor o igual que M y de longitud total K. Para el ejemplo de la figura, K = 7, N = 5 y M pudiera ser 2, 3,…, 7.</span></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify;tab-stops:105.0pt"><span class=Code><font color="#215868"><font face=Nina><font size=3><span lang=EN-GB>int CantidadDeCodigos (int K, int N, int M) </span>{…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify;tab-stops:105.0pt"><span lang=EN-GB><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify;tab-stops:105.0pt"><font face=Calibri size=3></font> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify"><b><span lang=EN-GB><span><font face=Calibri size=3>14-</font><span style="font:7pt 'Times New Roman'">   </span></span></span></b><font size=3><b><span lang=EN-GB><font face=Calibri>Dividiendo en cuadrados (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦</span></b><b><span lang=EN-GB><font face=Calibri>)</font></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font size=3><font face=Calibri><span lang=ES>Se tiene una pieza rectangular de madera de dimensiones NxM. Se quiere serruchar para formar la menor cantidad de cuadrados, con lados de longitud entera sin que se desperdicie madera. Para ello contamos con una sierra que puede serruchar de un extremo al otro de la pieza rectangular. (Es obvio que los cortes han de ser paralelos a los lados del rect</span><span lang=ES-TRAD>ángulo y en distancias enteras).</span></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Ejemplo:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font size=3><font face=Calibri><span lang=ES-TRAD>N </span>= 5 M = 6. Soluci<span lang=ES-TRAD>ón: 5</span></font></font></p>
+<table class=MsoNormalTable style="border-right:medium none;border-top:medium none;margin:auto auto auto 59.4pt;border-left:medium none;border-bottom:medium none;border-collapse:collapse" cellspacing=0 cellpadding=0 border=1>
+<tbody>
+<tr>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:windowtext 1pt solid;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:windowtext 1pt solid;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt;text-align:justify"><font face=Calibri></font> </p></td></tr>
+<tr>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:windowtext 1pt solid;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt;text-align:justify"><font face=Calibri></font> </p></td></tr>
+<tr>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:windowtext 1pt solid;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e6e6e6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt;text-align:justify"><font face=Calibri></font> </p></td></tr>
+<tr>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:windowtext 1pt solid;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#737373;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#737373;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e0e0e0;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e0e0e0;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt;text-align:justify"><font face=Calibri></font> </p></td></tr>
+<tr>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:windowtext 1pt solid;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#a6a6a6;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#737373;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#737373;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e0e0e0;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><font face=Calibri></font> </p></td>
+<td style="border-right:windowtext 1pt solid;padding-right:5.4pt;border-top:#e0dfe3;padding-left:5.4pt;background:#e0e0e0;padding-bottom:0in;border-left:#e0dfe3;width:27pt;padding-top:0in;border-bottom:windowtext 1pt solid" valign=top width=36>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt;text-align:justify"><font face=Calibri></font> </p></td></tr></tbody></table>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><span lang=ES><font color="#215868"><font face=Nina><font size=3>int MinimaCantidadDeCuadrados (int N, int M) {…}</font></font></font></span></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt;text-align:justify"><span lang=ES><font face=Calibri size=3></font></span> </p>
+<h2 style="margin:10pt 0in 0pt"><span lang=ES><font size=4><font color="#4f81bd"><font face=Cambria>Backtrack</font></font></font></span></h2>
+<p class=MsoListParagraphCxSpFirst style="margin:0in 0in 0pt;text-align:justify"><span lang=ES><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify;tab-stops:list .5in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>1-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES><font face=Calibri>Partición (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦)</span></b><b><span lang=ES-TRAD></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Mr. Sutherland tiene dos hijos. En cierta ocasión fue a buscar regalos para navidad y compró K regalos con precios P<sub>1</sub>, P<sub>2</sub>, …, P<sub>k</sub>. Él desea repartir los regalos entre sus dos hijos de modo que la diferencia entre los costos totales de cada uno de los conjuntos sea mínima.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int DiferenciaMinima (int[] regalos) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify;tab-stops:list .5in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>2-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Cara, escudo. (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦)</span></b><b><span lang=ES-TRAD></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Se tiene una matriz de NxM casillas donde todas las casillas tienen una moneda. Las monedas son de cara o escudo. Un movimiento consiste en virar una moneda y las monedas adyacentes (arriba, abajo, izquierda y derecha). Se desea saber, dada una disposición inicial y una disposición final de la matriz, la menor cantidad de “movimientos” que son necesarios para convertir la posición inicial en la final. Las matrices se pasan como matrices de bool.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font color="#215868"><font face=Nina><font size=3><span class=Code>int CantidadDeMovimientos (bool</span><span class=Code><span lang=ES-TRAD>[,] inicial, bool[,] final) {…}</span></span></font></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.25in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify;tab-stops:list .5in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>3-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Party Lamp (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦)</span></b><b><span lang=ES-TRAD></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Se tienen N lámparas y M interruptores. Cada interruptor puede estar conectado a una o más lámparas. De presionarse un interruptor, todas las lámparas que están conectadas a éste cambian de estado. Si estaban prendidas se apagan, si estaban apagadas se encienden.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Usted deberá hacer un programa para determinar la menor cantidad de interruptores que son necesarios presionar para encender todas las lámparas asumiendo que en un inicio están todas apagadas.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font size=3><span lang=ES-TRAD><font face=Calibri>Se le pasará una matriz de </font></span><span class=Code><font face=Nina color="#215868">bool</font></span><span lang=ES-TRAD><font face=Calibri> de N filas por M columnas donde el elemento </font></span><font color="#215868"><font face=Nina><span class=Code>m</span><span class=Code><span lang=ES-TRAD>[i,j]</span></span></font></font><span lang=ES-TRAD><font face=Calibri> es </font></span><span class=Code><span lang=ES-TRAD><font face=Nina color="#215868">true</font></span></span><span lang=ES-TRAD><font face=Calibri> si y sólo si el interruptor i está conectado a la lámpara j. Usted deberá devolver un arreglo de enteros con los interruptores que fue necesario presionar.</font></span></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3>int[] NecesitanPresionarse (bool[,] conexiones) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify;tab-stops:list .5in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>4-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Aplanando (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦♦)</span></b><b><span lang=ES-TRAD></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Se tiene en un almacén una hilera de N pilas de cajas. Cada pila tiene una cantidad de cajas determinada P<sub>1</sub>, P<sub>2</sub>, …, P<sub>n</sub> y todas las cajas tienen igual tamaño. Un montacargas puede hacer un movimiento que es trasladar de la pila i, K cajas para la pila i-1 y K cajas para la pila i+1, a excepción de los extremos en los que sólo K cajas son movidas para la pila interior (de la 0 a la 1 o de la N a la N-1). Se desea “aplanar” todas las pilas del almacén haciendo la menor cantidad de movimientos. (Un movimiento es la selección de la pila i y de la cantidad K a mover a ambos lados, no cada caja movida).</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Ejemplo:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><font face=Calibri size=3></font><span lang=ES-TRAD><font size=3><font face=Calibri></font></font></span><span lang=ES-TRAD></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri><span>      </span>0<span>      </span>1<span>    </span>2<span>      </span>3</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>1ro (1,1)<span>               </span>3 1 3 5</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>2ro (3,4)<span>               </span>3 1 5 1</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>3ro (2,2)<span>               </span>3 3 3 3</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font size=3><font color="#215868"><font face=Nina>class Movimiento { public int Pila; public int Cantidad; public Movimiento (int pila, int cant){…}}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span class=Code><font color="#215868"><font face=Nina><font size=3><span lang=ES-TRAD>Movimiento[] MenorCantidadDeMovimientos (</span>int[] pilas) {…}</font></font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify;tab-stops:list .5in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>5-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Reconstruyendo Varillas (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦♦)</span></b><b><span lang=ES-TRAD></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Se tiene en un principio N varillas de longitud M. Estas varillas se fragmentaron en diferentes pedazos de los cuales se sabe su longitud (entera) P1, … Pk, que es el único parámetro conocido puesto que se desconoce N y M.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Se desea reconstruir las varillas para obtener la mayor cantidad de varillas que tengan igual tamaño sin partir nuevamente ningún fragmento.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Por ejemplo:</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>Si se tuviesen los pedazos {1, 2, 2, 3, 4, 4, 5, 7} podrían formarse 2 varillas de longitud 14 o 4 de longitud 7. El número a devolver sería 4.</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font size=3><font face=Calibri>(1, 2, 4), (2, 5), (3, 4), (7)</font></font></span></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><font color="#215868"><font face=Nina><font size=3><span class=Code>int CantidadDeVarillas (int</span><span class=Code><span lang=ES-TRAD>[] pedazos) {</span>…}</span></font></font></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt;text-align:justify"><span lang=ES-TRAD><font face=Calibri size=3></font></span> </p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-indent:-0.25in;text-align:justify;tab-stops:list .5in"><b><span lang=ES-TRAD><span><font face=Calibri size=3>6-</font><span style="font:7pt 'Times New Roman'">      </span></span></span></b><font size=3><b><span lang=ES-TRAD><font face=Calibri>Caballos amenazantes (</font></span></b><b><span lang=ES-TRAD style="font-family:'Times New Roman','serif'">♦♦♦♦)</span></b><b><span lang=ES-TRAD></span></b></font></p>
+<p class=MsoListParagraphCxSpMiddle style="margin:0in 0in 0pt 0.5in;text-align:justify"><span lang=ES-TRAD><font face=Calibri><font size=3>Determinar la menor cantidad de caballos que deben ser dispuestos en un tablero de NxN para que todas las casillas queden amenazadas. Un caballo no amenaza la casilla en la que está.</font></font></span></p>
+<p class=MsoListParagraphCxSpLast style="margin:0in 0in 10pt 0.5in;text-align:justify"><span class=Code><font size=3><font color="#215868"><font face=Nina>int MenorCantidadDeCaballos (int N) {…}</font></font></font></span></p>
+<div style="mso-element:endnote-list"><br clear=all><font face=Nina color="#215868" size=3>
+<hr align=left width="33%" size=1>
+</font>
+<div id=edn1 style="mso-element:endnote">
+<p class=MsoEndnoteText style="margin:0in 0in 10pt"><a title="" href="/docencia/docencia/programacion/_layouts/CreateWebPage.aspx?List={496a9122-cc7c-454d-8e88-9029151b213f}&amp;RootFolderUrl=/docencia/programacion/Ejercicios&amp;Name=Algo mas sobre recursividad#_ednref1" name="_edn1"><span class=MsoEndnoteReference><span><span class=MsoEndnoteReference><span style="font-size:10pt;line-height:115%;font-family:'Calibri','sans-serif'">[i]</span></span></span></span></a><span lang=ES-TRAD><font face=Calibri size=2> Cualquier duda, escriba a </font></span><a href="mailto:lleonart@lab.matcom.uh.cu"><span lang=ES-TRAD><font face=Calibri size=2>lleonart@lab.matcom.uh.cu</font></span></a><span lang=ES-TRAD></span></p>
+<p class=MsoEndnoteText style="margin:0in 0in 10pt"><span lang=ES-TRAD><font face=Calibri size=2></font></span> </p></div></div></div></div><p></p></div>
+	<TABLE class="ms-formtable" border=0 cellpadding=0 id="formTbl" cellspacing=0 width=100%>
+			
+	</TABLE>
+	
+	<table border=0 cellpadding=2 cellspacing=0 width=100%>
+		<tr>
+			<td class="ms-descriptiontext" ID=onetidinfoblock2>
+				<span id="ctl00_PlaceHolderMain_ctl02">Última modificación realizada el 09/09/2009 12:42&nbsp; por <nobr><span><A ONCLICK="GoToLink(this);return false;" HREF="/docencia/programacion/_layouts/userdisp.aspx?ID=15">Alejandro Tamayo Castillo</A><img border="0" height="1" width="3" src="/_layouts/images/blank.gif" alt="" /><a href="javascript:" onclick="IMNImageOnClick();return false;" class="ms-imnlink"><img title="" alt="Sin información de presencia" name="imnmark" border="0" valign="middle" height="12" width="12" src="/_layouts/images/blank.gif" sip="tamayo@weboo.matcom.uh.cu" id="imn0,type=sip" ></a></span></nobr>&nbsp;</span>
+			</td>
+		</tr>
+	</table>
+
+			 </td>
+		  </tr>
+		</table>
+		</PlaceHolder>
+	  </td>
+	  <td class="ms-rightareacell">
+<div class="ms-pagemargin"><IMG SRC="/_layouts/images/blank.gif" width=10 height=1 alt=""></div>
+</td>
+	</TR>
+<tr>
+	<td class="ms-pagebottommarginleft"><IMG SRC="/_layouts/images/blank.gif" width=1 height=10 alt=""></td>
+	<td class="ms-pagebottommargin"><IMG SRC="/_layouts/images/blank.gif" width=1 height=10 alt=""></td>
+	<td class="ms-bodyareapagemargin"><IMG SRC="/_layouts/images/blank.gif" width=1 height=10 alt=""></td>
+	<td class="ms-pagebottommarginright"><IMG SRC="/_layouts/images/blank.gif" width=1 height=10 alt=""></td>
+</tr>
+	</TABLE></TD></TR>
+  </TABLE>
+  
+	  
+  
+   <input type="text" name="__spDummyText1" style="display:none;" size=1/>
+   <input type="text" name="__spDummyText2" style="display:none;" size=1/>
+  
+
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();var __wpmExportWarning='This Web Part Page has been personalized. As a result, one or more Web Part properties may contain confidential information. Make sure the properties contain information that is safe for others to read. After exporting this Web Part, view properties in the Web Part description file (.WebPart) by using a text editor such as Microsoft Notepad.';var __wpmCloseProviderWarning='You are about to close this Web Part.  It is currently providing data to other Web Parts, and these connections will be deleted if this Web Part is closed.  To close this Web Part, click OK.  To keep this Web Part, click Cancel.';var __wpmDeleteWarning='You are about to permanently delete this Web Part.  Are you sure you want to do this?  To delete this Web Part, click OK.  To keep this Web Part, click Cancel.';//]]>
+</script>
+<script type="text/javascript" language="JavaScript" defer>
+<!--
+function S3031AEBB_Submit() {GoSearch(null,'ctl00_PlaceHolderSearchArea_ctl01_S3031AEBB_InputKeywords',null,true,true,'ctl00_PlaceHolderSearchArea_ctl01_SBScopesDDL','ctl00_PlaceHolderSearchArea_ctl01_ctl00',null,null,'\u002fdocencia\u002fSearch\u002fResults.aspx', 'Este sitio','Esta lista', 'Esta carpeta', 'Sitios relacionados', '\u002fdocencia\u002fprogramacion\u002f_layouts\u002fOSSSearchResults.aspx');}
+// -->
+</script><script type="text/javascript" language="JavaScript" >
+// append an onload event handler
+var S3031AEBB__onload= document.body.onload;
+if(typeof document.body.onload == 'function')
+{
+ document.body.onload = function()
+ {
+S3031AEBB__onload();        
+  document.getElementById('ctl00_PlaceHolderSearchArea_ctl01_S3031AEBB_InputKeywords').name = 'InputKeywords';
+ }
+}
+else
+{
+ document.body.onload = function()
+ {
+  eval(S3031AEBB__onload);        
+  document.getElementById('ctl00_PlaceHolderSearchArea_ctl01_S3031AEBB_InputKeywords').name = 'InputKeywords';
+ }
+}
+
+function S3031AEBB_OSBEK(event1) { 
+if((event1.which == 10) || (event1.which == 13))
+{   
+S3031AEBB_Submit();
+}
+}
+// -->
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var zz1_TopNavigationMenu_Data = new Object();
+zz1_TopNavigationMenu_Data.disappearAfter = 500;
+zz1_TopNavigationMenu_Data.horizontalOffset = 0;
+zz1_TopNavigationMenu_Data.verticalOffset = 0;
+zz1_TopNavigationMenu_Data.hoverClass = 'zz1_TopNavigationMenu_16 ms-topNavFlyOutsHover';
+zz1_TopNavigationMenu_Data.hoverHyperLinkClass = 'zz1_TopNavigationMenu_15 ms-topNavFlyOutsHover';
+zz1_TopNavigationMenu_Data.staticHoverClass = 'zz1_TopNavigationMenu_14 ms-topNavHover';
+zz1_TopNavigationMenu_Data.staticHoverHyperLinkClass = 'zz1_TopNavigationMenu_13 ms-topNavHover';
+if (typeof(overrideMenu_HoverStatic) == 'function' && typeof(Menu_HoverStatic) == 'function')
+{
+_spBodyOnLoadFunctionNames.push('enableFlyoutsAfterDelay');
+Menu_HoverStatic = overrideMenu_HoverStatic;
+}
+var flyoutsAllowed = false;
+function enableFlyoutsAfterDelay()
+{
+setTimeout('flyoutsAllowed = true;', 50);
+}
+function overrideMenu_HoverStatic(item)
+{
+if (!flyoutsAllowed || (document.readyState != null && document.readyState != 'complete'))
+{
+setTimeout(delayMenu_HoverStatic(item), 50);
+}
+else
+{
+// this code is the default ASP.NET implementation of Menu_HoverStatic
+var node = Menu_HoverRoot(item);
+var data = Menu_GetData(item);
+if (!data) return;
+__disappearAfter = data.disappearAfter;
+Menu_Expand(node, data.horizontalOffset, data.verticalOffset);
+}
+}
+function delayMenu_HoverStatic(item)
+{
+return (function()
+{
+overrideMenu_HoverStatic(item);
+});
+}
+var zz2_QuickLaunchMenu_Data = new Object();
+zz2_QuickLaunchMenu_Data.disappearAfter = 500;
+zz2_QuickLaunchMenu_Data.horizontalOffset = 0;
+zz2_QuickLaunchMenu_Data.verticalOffset = 0;
+//]]>
+</script>
+</form>
+  
+	
+	
+</BODY>
+</HTML>

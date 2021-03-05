@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cantidad de barras (otra solucion)", "Cantidad de barras (otra solucion)\Cantidad de barras (otra solucion).csproj", "{983B8EA1-75F4-421A-89B3-74C1A34D6358}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{983B8EA1-75F4-421A-89B3-74C1A34D6358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{983B8EA1-75F4-421A-89B3-74C1A34D6358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{983B8EA1-75F4-421A-89B3-74C1A34D6358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{983B8EA1-75F4-421A-89B3-74C1A34D6358}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

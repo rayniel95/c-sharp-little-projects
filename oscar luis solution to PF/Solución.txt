@@ -1,0 +1,33 @@
+static bool AcceptsEmtpyString(string pattern)
+        {
+            foreach (var symbol in pattern)
+                if (char.IsLetter(symbol) || symbol == '!' || symbol == '+')
+                    return false;
+            return true;
+        }
+
+        public static int GetMatchesCount(string pattern, string input)
+        {
+
+            if (input == "")
+                return (AcceptsEmtpyString(pattern)) ? 1 : 0;
+            if (pattern == "") return 0;
+
+            char pcurr = pattern[0];
+            char icurr = input[0];
+
+            if(char.IsLetter(pcurr))
+                return (pcurr != icurr) ? 0 : GetMatchesCount(pattern.Substring(1), input.Substring(1));
+
+            if(pcurr == '!')
+                return GetMatchesCount(pattern.Substring(1), input.Substring(1));
+
+            if(pcurr == '?')
+                return GetMatchesCount(pattern.Substring(1), input) + GetMatchesCount(pattern.Substring(1), input.Substring(1));
+
+            if(pcurr == '+')
+                return GetMatchesCount("*" + pattern.Substring(1), input.Substring(1));
+
+            //pcurr == '*'
+            return GetMatchesCount(pattern.Substring(1), input) + GetMatchesCount(pattern, input.Substring(1));
+        }

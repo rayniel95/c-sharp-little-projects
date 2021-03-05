@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Weboo.Grouping.1.0.0.0.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Grouping.Fakes.StubIGroupEnumerator`2">
+            <summary>Stub type of Grouping.IGroupEnumerator`2</summary>
+        </member>
+        <member name="M:Grouping.Fakes.StubIGroupEnumerator`2.#ctor">
+            <summary>Initializes a new instance of type StubIGroupEnumerator</summary>
+        </member>
+        <member name="P:Grouping.Fakes.StubIGroupEnumerator`2.Grouping#IGroupEnumerator{T,K}#Current">
+            <summary>Sets the stub of IGroupEnumerator`2.get_Current()</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubIGroupEnumerator`2.CurrentGet">
+            <summary>Sets the stub of IGroupEnumerator`2.get_Current()</summary>
+        </member>
+        <member name="P:Grouping.Fakes.StubIGroupEnumerator`2.Grouping#IGroupEnumerator{T,K}#CurrentKey">
+            <summary>Sets the stub of IGroupEnumerator`2.get_CurrentKey()</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubIGroupEnumerator`2.CurrentKeyGet">
+            <summary>Sets the stub of IGroupEnumerator`2.get_CurrentKey()</summary>
+        </member>
+        <member name="M:Grouping.Fakes.StubIGroupEnumerator`2.Grouping#IGroupEnumerator{T,K}#MoveNext">
+            <summary>Sets the stub of IGroupEnumerator`2.MoveNext()</summary>
+        </member>
+        <member name="M:Grouping.Fakes.StubIGroupEnumerator`2.Grouping#IGroupEnumerator{T,K}#MoveNextGroup">
+            <summary>Sets the stub of IGroupEnumerator`2.MoveNextGroup()</summary>
+        </member>
+        <member name="M:Grouping.Fakes.StubIGroupEnumerator`2.Grouping#IGroupEnumerator{T,K}#Reset">
+            <summary>Sets the stub of IGroupEnumerator`2.Reset()</summary>
+        </member>
+        <member name="M:Grouping.Fakes.StubIGroupEnumerator`2.Grouping#IGroupEnumerator{T,K}#ResetGroups">
+            <summary>Sets the stub of IGroupEnumerator`2.ResetGroups()</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubIGroupEnumerator`2.MoveNext">
+            <summary>Sets the stub of IGroupEnumerator`2.MoveNext()</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubIGroupEnumerator`2.MoveNextGroup">
+            <summary>Sets the stub of IGroupEnumerator`2.MoveNextGroup()</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubIGroupEnumerator`2.Reset">
+            <summary>Sets the stub of IGroupEnumerator`2.Reset()</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubIGroupEnumerator`2.ResetGroups">
+            <summary>Sets the stub of IGroupEnumerator`2.ResetGroups()</summary>
+        </member>
+        <member name="P:Grouping.Fakes.StubIGroupEnumerator`2.Grouping#IGroupEnumerator{T,K}#Selector">
+            <summary>Sets the stub of IGroupEnumerator`2.get_Selector()</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubIGroupEnumerator`2.SelectorGet">
+            <summary>Sets the stub of IGroupEnumerator`2.get_Selector()</summary>
+        </member>
+        <member name="T:Grouping.Fakes.StubISelector`2">
+            <summary>Stub type of Grouping.ISelector`2</summary>
+        </member>
+        <member name="M:Grouping.Fakes.StubISelector`2.#ctor">
+            <summary>Initializes a new instance of type StubISelector</summary>
+        </member>
+        <member name="M:Grouping.Fakes.StubISelector`2.Grouping#ISelector{T,K}#Select(`0)">
+            <summary>Sets the stub of ISelector`2.Select(!0 obj)</summary>
+        </member>
+        <member name="F:Grouping.Fakes.StubISelector`2.SelectT0">
+            <summary>Sets the stub of ISelector`2.Select(!0 obj)</summary>
+        </member>
+    </members>
+</doc>
